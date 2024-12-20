@@ -14,7 +14,7 @@ public class TestBase {
 
     @BeforeSuite(alwaysRun = true)
     public void beforeTestSuite() {
-        System.setProperty("selenide.browser", "firefox");
+        System.setProperty("selenide.browser", "edge");
 
         log.info("Max retry time: {}", System.getProperty("maxRetryCount"));
         log.info("Grid: {}", System.getProperty("remote"));
