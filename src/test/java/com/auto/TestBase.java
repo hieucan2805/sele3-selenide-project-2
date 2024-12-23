@@ -14,8 +14,6 @@ public class TestBase {
 
     @BeforeSuite(alwaysRun = true)
     public void beforeTestSuite() {
-        System.setProperty("selenide.browser", "edge");
-
         log.info("Max retry time: {}", System.getProperty("maxRetryCount"));
         log.info("Grid: {}", System.getProperty("remote"));
         log.info("Browser: {}", System.getProperty("selenide.browser"));
@@ -27,6 +25,7 @@ public class TestBase {
         Configuration.browser = testConfig.getBrowser();
         Configuration.reportsFolder = testConfig.getReportFolder();
         Configuration.timeout = testConfig.getTimeout();
+        Configuration.browserSize = testConfig.getBrowserSize();
     }
 
     @AfterClass(alwaysRun = true)

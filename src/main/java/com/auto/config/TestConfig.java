@@ -3,21 +3,23 @@ package com.auto.config;
 import com.auto.utils.Constants;
 import lombok.Data;
 
+import java.awt.*;
+
 @Data
 public class TestConfig {
     private String remote;
     private String maxRetry;
     private boolean headless;
     private String reportFolder;
-    private boolean browserSize;
+    private String browserSize;
     private long timeout;
     private static TestConfig instance = null;
 
     private TestConfig() {
         this.remote = null;
         this.headless = false;
-        this.reportFolder = "allure-results";
-        this.browserSize = true;
+        this.reportFolder = "allure-reports";
+        this.browserSize = "1920x1080";
         this.timeout = 5000;
     }
 
@@ -34,5 +36,13 @@ public class TestConfig {
 
     public String getBrowser() {
         return System.getProperty("selenide.browser") == null ? "chrome" : System.getProperty("selenide.browser");
+    }
+
+    public String getScreenSize() {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int width = (int) screenSize.getWidth();
+        int height = (int) screenSize.getHeight();
+
+        return width + "x" + height;
     }
 }
