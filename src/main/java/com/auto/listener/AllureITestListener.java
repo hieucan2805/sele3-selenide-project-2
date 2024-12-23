@@ -39,7 +39,7 @@ public class AllureITestListener implements ITestListener {
             byte[] buf = Selenide.screenshot(OutputType.BYTES);
             if (buf != null) {
                 ByteArrayInputStream input = new ByteArrayInputStream(buf);
-                Allure.attachment(getTestMethodName(result) +"_"+UUID.randomUUID().toString(), input);
+                Allure.attachment(getTestMethodName(result) +"_"+UUID.randomUUID(), input);
             }
         } catch (Exception e) {
             logger.error("An error occurs when adding screenshot to report: \n{}", e.getMessage());
