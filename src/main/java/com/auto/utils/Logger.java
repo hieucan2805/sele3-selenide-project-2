@@ -1,24 +1,24 @@
 package com.auto.utils;
 
 import io.qameta.allure.Allure;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class Logger {
-    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Logger.class);
 
     public static void info(String message) {
-        logger.info(message);
-        logToAllure("INFO", message);
+        log.info(message);
+//        logToAllure("INFO", message);
     }
 
     public static void error(String message) {
-        logger.error(message);
-        logToAllure("ERROR", message);
+        log.error(message);
+//        logToAllure("ERROR", message);
     }
 
     public static void warn(String message) {
-        logger.warn(message);
-        logToAllure("WARN", message);
+        log.warn(message);
+//        logToAllure("WARN", message);
     }
 
     private static void logToAllure(String level, String message) {
