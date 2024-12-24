@@ -38,6 +38,9 @@ public class TestConfig {
         return System.getProperty("selenide.browser") == null ? "chrome" : System.getProperty("selenide.browser");
     }
 
+    public void maximizedBrowserWindow(){
+    }
+
     public String getScreenSize() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int) screenSize.getWidth();
