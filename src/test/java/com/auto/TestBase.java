@@ -1,6 +1,7 @@
 package com.auto;
 
 import com.auto.config.TestConfig;
+import com.auto.utils.Logger;
 import com.codeborne.selenide.Configuration;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.AfterClass;
@@ -14,22 +15,26 @@ public class TestBase {
 
     @BeforeSuite(alwaysRun = true)
     public void beforeTestSuite() {
-        log.info("Max retry time: {}", System.getProperty("maxRetryCount"));
-        log.info("Grid: {}", System.getProperty("remote"));
-        log.info("Browser: {}", System.getProperty("selenide.browser"));
-        log.info("Thread count: {}", System.getProperty("threadCount"));
 
-        if (System.getProperty("remote").equals("true")) {
+        if (testConfig.getRemote().equals("true")) {
             Configuration.remote = testConfig.remote();
         }
         Configuration.browser = testConfig.getBrowser();
         Configuration.reportsFolder = testConfig.getReportFolder();
         Configuration.timeout = testConfig.getTimeout();
         Configuration.browserSize = testConfig.getBrowserSize();
+
+        log.info("Max retry time: {}", System.getProperty("maxRetryCount"));
+        log.info("Grid: {}", Configuration.remote);
+        log.info("Browser: {}", Configuration.browser);
+        log.info("Browser size: {}", Configuration.browserSize);
+        log.info("Thread count: {}", System.getProperty("threadCount"));
+
     }
 
     @AfterClass(alwaysRun = true)
     public void tearDown() {
+        Logger.info("Close WebDriver");
         closeWebDriver();
     }
 }
