@@ -5,7 +5,7 @@ import java.time.Duration;
 public class Constants {
     // url
     public static final String GOOGLE = "https://google.com";
-//    public static final String VIETJET = "https://www.vietjetair.com/";
+//    public static final String VIETJET_EN = "https://www.vietjetair.com/en";
     public static final String GRID_HUB_URL = "http://192.168.1.10";
 
     public static final String PROPERTIES_FILE_PATH_ROOT = PropertiesUtils.getValue("PROPERTIES_FILE_PATH_ROOT");

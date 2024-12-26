@@ -16,13 +16,13 @@ public class GoogleSearchTest extends TestBase {
         Logger.info("Navigate to Google");
         open(Constants.GOOGLE);
 
-//        // Tìm kiếm một từ khoá
-//        Logger.info("Tìm kiếm một từ khoá");
-//        $("[name='q']").setValue("Selenide").pressEnter();
-//
-//        // Kiểm tra kết quả
-//        Logger.info("Kiểm tra kết quả");
-//        $("#search").shouldHave(Condition.text("a: concise UI tests in Java"));
+        // Tìm kiếm một từ khoá
+        Logger.info("Tìm kiếm một từ khoá");
+        $("[name='q']").setValue("Selenide").pressEnter();
+
+        // Kiểm tra kết quả
+        Logger.info("Kiểm tra kết quả");
+        $("#search").shouldHave(Condition.text("a: concise UI tests in Java"));
 
     }
 }

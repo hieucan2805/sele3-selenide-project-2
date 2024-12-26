@@ -2,19 +2,28 @@ package com.auto.utils;
 
 import io.qameta.allure.Allure;
 import lombok.extern.slf4j.Slf4j;
+import org.testng.collections.Objects;
+import org.testng.util.Strings;
+
+import java.util.Arrays;
 
 @Slf4j
 public class Logger {
 
     public static void info(String message) {
         log.info(message);
-//        logToAllure("INFO", message);
+        logToAllure("INFO", message);
     }
 
     public static void error(String message) {
         log.error(message);
-//        logToAllure("ERROR", message);
+        logToAllure("ERROR", message);
     }
+
+//    public static void error(String message, Objects... objects) {
+//        log.error(message);
+//        logToAllure("ERROR", message);
+//    }
 
     public static void warn(String message) {
         log.warn(message);
@@ -25,4 +34,14 @@ public class Logger {
         String logMessage = String.format("[%s] %s", level, message);
         Allure.getLifecycle().addAttachment("Log Entry", "text/plain", "txt", logMessage.getBytes());
     }
+
+    public static void error(String message, String fullName, String value) {
+        log.error(message);
+        logToAllure("ERROR", message);
+    }
+    public static void error(String message, String string1) {
+        log.error(message);
+        logToAllure("ERROR", message);
+    }
+
 }
