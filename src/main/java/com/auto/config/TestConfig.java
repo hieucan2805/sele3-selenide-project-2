@@ -1,14 +1,21 @@
 package com.auto.config;
 
 import com.auto.utils.Constants;
+import com.codeborne.selenide.WebDriverRunner;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.awt.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import static com.codeborne.selenide.Selenide.open;
+
 @Data
+@Getter
+@Setter
 public class TestConfig {
     private String remote;
     private String maxRetry;
@@ -26,10 +33,23 @@ public class TestConfig {
             throw new RuntimeException("Could not load config.browser.properties", e);
         }
 
+
+        String windowSize = getScreenSize();
         this.remote = browserProps.getProperty("remote");
         this.headless = browserProps.getProperty("headless");
         this.reportFolder = "allure-results";
-        this.browserSize = browserProps.getProperty("browserSize");
+        if(browserProps.getProperty("start-maximized").equals("false"))
+        {
+            if (windowSize.equals(browserProps.getProperty("browserSize"))) {
+                this.browserSize = browserProps.getProperty("browserSize");
+            } else {
+                this.browserSize = windowSize;
+            }
+        }else {
+            open();
+            WebDriverRunner.getWebDriver().manage().window().maximize();
+            this.browserSize="maximized";
+        }
         this.timeout = 5000;
 
     }

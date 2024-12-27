@@ -1,0 +1,8 @@
+<aspectj>
+    <weaver options="-verbose -showWeaveInfo">
+        <include within="your.package.name..*"/>
+    </weaver>
+    <aspects>
+        <aspect name="your.aspect.ClassName"/>
+    </aspects>
+</aspectj>

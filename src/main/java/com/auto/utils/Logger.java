@@ -2,10 +2,6 @@ package com.auto.utils;
 
 import io.qameta.allure.Allure;
 import lombok.extern.slf4j.Slf4j;
-import org.testng.collections.Objects;
-import org.testng.util.Strings;
-
-import java.util.Arrays;
 
 @Slf4j
 public class Logger {
@@ -27,7 +23,12 @@ public class Logger {
 
     public static void warn(String message) {
         log.warn(message);
-//        logToAllure("WARN", message);
+        logToAllure("WARN", message);
+    }
+
+    public static void warn(String message, Object object) {
+        log.warn(message,object);
+        logToAllure("WARN", message);
     }
 
     private static void logToAllure(String level, String message) {

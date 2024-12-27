@@ -6,7 +6,7 @@
     </listeners>
     <test name="Selenide test">
         <classes>
-            <class name="com.auto.GoogleSearchTest"/>
+            <class name="com.auto.vietjet.TestCase001"/>
         </classes>
     </test>
 </suite>
