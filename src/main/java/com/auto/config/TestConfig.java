@@ -46,9 +46,8 @@ public class TestConfig {
                 this.browserSize = windowSize;
             }
         }else {
-            open();
-            WebDriverRunner.getWebDriver().manage().window().maximize();
             this.browserSize="maximized";
+
         }
         this.timeout = 5000;
 

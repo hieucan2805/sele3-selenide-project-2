@@ -2,12 +2,18 @@ package com.auto.utils;
 
 import io.qameta.allure.Allure;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.LoggerFactory;
 
 @Slf4j
 public class Logger {
 
     public static void info(String message) {
         log.info(message);
+        logToAllure("INFO", message);
+    }
+
+    public static void info(String message, String message2) {
+        log.info(message, message2);
         logToAllure("INFO", message);
     }
 

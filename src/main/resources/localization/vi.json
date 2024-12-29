@@ -1,0 +1,26 @@
+{
+  "homePage": {
+    "button": {
+      "findFlight": "Tìm chuyến bay",
+      "register": "Register"
+    },
+    "radio": {
+      "oneWay": "Một chiều",
+      "roundTrip": "Khứ hồi"
+    },
+    "text": {
+      "currency": "VND"
+    },
+    "input": {
+      "from": "Điểm khởi hành",
+      "to": "Điểm đến"
+    }
+  },
+  "loginPage": {
+    "title": "Login to Your Account",
+    "button": {
+      "submit": "Submit",
+      "forgotPassword": "Forgot Password?"
+    }
+  }
+}
